@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/main.css">
+
+    <!-- JQuery -->
+    <script src="js/jquery-3.6.0.js"></script>
+    <script>
+        $(function () {
+            $("#navigation-bar").load("navibar.html")
+            $("#home-section").load("home.html")
+        })
+    </script>
+</head>
+<body>
+    
+    <!-- Header Start -->
+    <header class="header">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="logo">
+                    <a href="index.html">HP</a>
+                </div>
+                <div class="hamburger-btn outer-shadow hover-in-shadow">
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header End -->
+
+    <!-- Navigation Menu Start -->
+    <div id="navigation-bar"></div>
+    <!-- Navigation Menu End -->
+
+    <!-- Home Section Bar Start -->
+    <div id="home-section"></div>
+    <!-- Home Section Bar End -->
+
+</body>
+</html>
