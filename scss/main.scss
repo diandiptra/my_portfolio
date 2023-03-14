@@ -2,6 +2,7 @@
 @import "var";
 @import "services";
 @import "portfolio";
+@import "portfoliopopup";
 
 
 
@@ -13,6 +14,11 @@ body {
     overflow-x: hidden;
     // background-color: $bg-black-50;
     background-image: $bg-black-gradient;
+    // overflow-y: hidden;
+
+    &.stop-scrolling {
+        overflow-y: hidden;
+    }
 }
 
 * {

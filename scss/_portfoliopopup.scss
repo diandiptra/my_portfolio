@@ -1,0 +1,266 @@
+@import 'var';
+
+/* ----------Portfolio Popup---------- */
+.portfolio-popup {
+    background-color: $bg-black-50;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    overflow-y: scroll;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+
+     .pp-main {
+        min-height: 100vh;
+        max-width: 1350px;
+        width: 85%;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+     }
+
+     &.open {
+      visibility: visible;
+      opacity: 1;
+     }
+
+     .pp-loader {
+         position: fixed;
+         left: 0;
+         top: 0;
+         height: 100%;
+         width: 100%;
+         z-index: 1005;
+         background-color: $bg-opacity;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         visibility: hidden;
+         opacity: 0;
+         
+         &.active {
+            visibility: visible;
+            opacity: 1;
+         }
+
+         .loader {
+            height: 40px;
+            width: 40px;
+            border: 5px solid $skin-color;
+            border-radius: 50%;
+            border-right: 3px solid transparent;
+            animation: spin 2s linear infinite;
+         }
+     }
+
+     .pp-img {
+        width: auto;
+        max-width: 850px;
+        height: auto;
+        padding: 10px;
+        border-radius: 5px;
+     }
+
+     .pp-main-inner {
+        padding: 70px 0 50px;
+        position: relative;
+     }
+
+     .pp-project-details-btn {
+        position: absolute;
+        left: 0;
+        top: 15px;
+        height: 40px;
+        line-height: 40px;
+        border-radius: 30px;
+        font-size: 16px;
+        font-weight: 500;
+        color: $skin-color;
+        cursor: pointer;
+        padding: 0 15px;
+        transition: all 0.3s ease;
+
+        &::after {
+            border-radius: 30px;
+        }
+
+        i {
+            margin-left: 4px;
+        }
+     }
+
+     .pp-close {
+        position: absolute;
+        right: 0;
+        height: 40px;
+        width: 40px;
+        top: 15px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 40px;
+        font-size: 30px;
+        color: $text-black-600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &::after {
+            border-radius: 50%;   
+        }
+     }
+
+     .pp-counter {
+        position: absolute;
+        right: 0;
+        height: 40px;
+        line-height: 40px;
+        bottom: 5px;
+        font-size: 16px;
+        color: $text-black-600;
+     }
+
+     .pp-prev, .pp-next {
+        position: fixed;
+        top: 50%;
+        height: 40px;
+        width: 40px;
+        text-align: center;
+        font-size: 20px;
+        cursor: pointer;
+        z-index: 1010;
+        color: $text-black-900;
+        transition: all 0.3s ease;
+        opacity: 0.3;
+
+        i {
+            line-height: 40px;
+        }
+
+        &:hover{
+            opacity: 1;
+        }
+     }
+
+     .pp-prev {
+        left: 15px;
+
+        i {
+            transform: rotate(180deg);
+        }
+     }
+     
+     .pp-next {
+        right: 15px;
+     }
+
+     .pp-details {
+        max-width: 1350px;
+        width: calc(85% + 30px);
+        margin: auto;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: all 0.5s ease;
+
+        &.active {
+            opacity: 1;
+        }
+     }
+
+     .pp-details-inner {
+        padding: 30px 0;
+     }
+
+     .separator {
+        height: 1px;
+        width: 100%;
+        display: block;
+        background-color: $bg-black-100;
+     }
+
+     .pp-project-details {
+        h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: $text-black-700;
+            margin: 0 0 15px;
+            text-transform: capitalize;
+        }
+     }
+
+     .pp-title {
+        padding: 0 15px;
+
+        h2 {
+            font-size: 20px;
+            color: $text-black-900;
+            text-transform: capitalize;
+            font-weight: 600;
+            margin: 0 0 5px;
+        }
+
+        p {
+            font-size: 14px;
+            font-weight: 600;
+            color: $text-black-600;
+            margin: 0 0 15px;
+            border-bottom: 1px solid $bg-black-100;
+            padding-bottom: 10px;
+
+            span {
+               font-weight: 400;
+               text-transform: capitalize;
+            }
+        }
+     }
+
+     .row {
+        display: flex;
+
+        .description {
+           flex: 0 0 65%;
+           max-width: 65%;
+           padding: 0 15px;
+
+           p {
+            font-size: 16px;
+            color: $text-black-600;
+            line-height: 26px;
+            margin: 0;
+           }
+        }
+   
+        .info {
+           flex: 0 0 35%;
+           max-width: 35%;
+           padding: 0 15px;
+
+           ul {
+            li {
+                display: block;
+                margin-bottom: 5px;
+                font-weight: 600;
+                color: $text-black-600;
+                font-size: 16px;
+
+                span {
+                  font-weight: 400;
+                }
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+
+                a {
+                  color: $skin-color;
+                }
+            }
+           }
+        }
+     }
+
+}

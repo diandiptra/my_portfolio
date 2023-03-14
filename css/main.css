@@ -10,6 +10,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap");
 .about-section {
   padding: 20px 0 0;
   min-height: 100vh;
@@ -98,8 +101,7 @@
 }
 .about-section .tab-content.active {
   display: block;
-  -webkit-animation: fadeInTop 0.5s ease;
-          animation: fadeInTop 0.5s ease;
+  animation: fadeInTop 0.5s ease;
 }
 .about-section .skills {
   padding: 0 0 40px;
@@ -324,6 +326,13 @@
   display: flex;
   flex-wrap: wrap;
 }
+.portfolio-section .portfolio-item.hide {
+  display: none;
+}
+.portfolio-section .portfolio-item.show {
+  display: block;
+  animation: fadeInTop 0.5s ease;
+}
 .portfolio-section .portfolio-item-details {
   display: none;
 }
@@ -386,12 +395,239 @@
   opacity: 0.6;
 }
 
+/* ----------Portfolio Popup---------- */
+.portfolio-popup {
+  background-color: #eff0f4;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  overflow-y: scroll;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+.portfolio-popup .pp-main {
+  min-height: 100vh;
+  max-width: 1350px;
+  width: 85%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.portfolio-popup.open {
+  visibility: visible;
+  opacity: 1;
+}
+.portfolio-popup .pp-loader {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1005;
+  background-color: rgba(255, 255, 255, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+  opacity: 0;
+}
+.portfolio-popup .pp-loader.active {
+  visibility: visible;
+  opacity: 1;
+}
+.portfolio-popup .pp-loader .loader {
+  height: 40px;
+  width: 40px;
+  border: 5px solid #4b6cb7;
+  border-radius: 50%;
+  border-right: 3px solid transparent;
+  animation: spin 2s linear infinite;
+}
+.portfolio-popup .pp-img {
+  width: auto;
+  max-width: 850px;
+  height: auto;
+  padding: 10px;
+  border-radius: 5px;
+}
+.portfolio-popup .pp-main-inner {
+  padding: 70px 0 50px;
+  position: relative;
+}
+.portfolio-popup .pp-project-details-btn {
+  position: absolute;
+  left: 0;
+  top: 15px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #4b6cb7;
+  cursor: pointer;
+  padding: 0 15px;
+  transition: all 0.3s ease;
+}
+.portfolio-popup .pp-project-details-btn::after {
+  border-radius: 30px;
+}
+.portfolio-popup .pp-project-details-btn i {
+  margin-left: 4px;
+}
+.portfolio-popup .pp-close {
+  position: absolute;
+  right: 0;
+  height: 40px;
+  width: 40px;
+  top: 15px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 40px;
+  font-size: 30px;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.portfolio-popup .pp-close::after {
+  border-radius: 50%;
+}
+.portfolio-popup .pp-counter {
+  position: absolute;
+  right: 0;
+  height: 40px;
+  line-height: 40px;
+  bottom: 5px;
+  font-size: 16px;
+  color: #666;
+}
+.portfolio-popup .pp-prev, .portfolio-popup .pp-next {
+  position: fixed;
+  top: 50%;
+  height: 40px;
+  width: 40px;
+  text-align: center;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 1010;
+  color: #000;
+  transition: all 0.3s ease;
+  opacity: 0.3;
+}
+.portfolio-popup .pp-prev i, .portfolio-popup .pp-next i {
+  line-height: 40px;
+}
+.portfolio-popup .pp-prev:hover, .portfolio-popup .pp-next:hover {
+  opacity: 1;
+}
+.portfolio-popup .pp-prev {
+  left: 15px;
+}
+.portfolio-popup .pp-prev i {
+  transform: rotate(180deg);
+}
+.portfolio-popup .pp-next {
+  right: 15px;
+}
+.portfolio-popup .pp-details {
+  max-width: 1350px;
+  width: calc(85% + 30px);
+  margin: auto;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+.portfolio-popup .pp-details.active {
+  opacity: 1;
+}
+.portfolio-popup .pp-details-inner {
+  padding: 30px 0;
+}
+.portfolio-popup .separator {
+  height: 1px;
+  width: 100%;
+  display: block;
+  background-color: #ddd;
+}
+.portfolio-popup .pp-project-details h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #555;
+  margin: 0 0 15px;
+  text-transform: capitalize;
+}
+.portfolio-popup .pp-title {
+  padding: 0 15px;
+}
+.portfolio-popup .pp-title h2 {
+  font-size: 20px;
+  color: #000;
+  text-transform: capitalize;
+  font-weight: 600;
+  margin: 0 0 5px;
+}
+.portfolio-popup .pp-title p {
+  font-size: 14px;
+  font-weight: 600;
+  color: #666;
+  margin: 0 0 15px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+.portfolio-popup .pp-title p span {
+  font-weight: 400;
+  text-transform: capitalize;
+}
+.portfolio-popup .row {
+  display: flex;
+}
+.portfolio-popup .row .description {
+  flex: 0 0 65%;
+  max-width: 65%;
+  padding: 0 15px;
+}
+.portfolio-popup .row .description p {
+  font-size: 16px;
+  color: #666;
+  line-height: 26px;
+  margin: 0;
+}
+.portfolio-popup .row .info {
+  flex: 0 0 35%;
+  max-width: 35%;
+  padding: 0 15px;
+}
+.portfolio-popup .row .info ul li {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: #666;
+  font-size: 16px;
+}
+.portfolio-popup .row .info ul li span {
+  font-weight: 400;
+}
+.portfolio-popup .row .info ul li:last-child {
+  margin-bottom: 0;
+}
+.portfolio-popup .row .info ul li a {
+  color: #4b6cb7;
+}
+
 /* ----------Main---------- */
 body {
   font-size: 16px;
   line-height: 1.5em;
   overflow-x: hidden;
   background-image: linear-gradient(130deg, #ece9e6, #ffffff);
+}
+body.stop-scrolling {
+  overflow-y: hidden;
 }
 
 * {
@@ -493,8 +729,7 @@ img {
   border: 4px solid #8a49ff;
   right: 10%;
   bottom: 10%;
-  -webkit-animation: spin 3s linear infinite;
-          animation: spin 3s linear infinite;
+  animation: spin 3s linear infinite;
 }
 
 .effect-2 {
@@ -504,8 +739,7 @@ img {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  -webkit-animation: topBounce 4s ease-in-out infinite;
-          animation: topBounce 4s ease-in-out infinite;
+  animation: topBounce 4s ease-in-out infinite;
 }
 .effect-2 div {
   height: 3px;
@@ -521,8 +755,7 @@ img {
   border-radius: 50%;
   left: 50%;
   top: -115px;
-  -webkit-animation: leftBounce 6s ease-in-out infinite;
-          animation: leftBounce 6s ease-in-out infinite;
+  animation: leftBounce 6s ease-in-out infinite;
 }
 
 .effect-4 {
@@ -530,8 +763,7 @@ img {
   border-left: 30px solid #06d79c;
   left: 30%;
   top: 20%;
-  -webkit-animation: spin 15s linear infinite;
-          animation: spin 15s linear infinite;
+  animation: spin 15s linear infinite;
 }
 .effect-4::before {
   content: "";
@@ -552,8 +784,7 @@ img {
   justify-content: space-between;
   border-radius: 50%;
   overflow: hidden;
-  -webkit-animation: spin 10s linear infinite;
-          animation: spin 10s linear infinite;
+  animation: spin 10s linear infinite;
 }
 .effect-5 div {
   width: 1px;
@@ -589,28 +820,12 @@ img {
 }
 
 /* ----------Animation---------- */
-@-webkit-keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
 @keyframes spin {
   0% {
     transform: rotate(0deg);
   }
   100% {
     transform: rotate(360deg);
-  }
-}
-@-webkit-keyframes topBounce {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(25px);
   }
 }
 @keyframes topBounce {
@@ -621,30 +836,12 @@ img {
     transform: translateY(25px);
   }
 }
-@-webkit-keyframes leftBounce {
-  0%, 100% {
-    transform: translateX(0);
-  }
-  50% {
-    transform: translateX(25px);
-  }
-}
 @keyframes leftBounce {
   0%, 100% {
     transform: translateX(0);
   }
   50% {
     transform: translateX(25px);
-  }
-}
-@-webkit-keyframes fadeInTop {
-  0% {
-    opacity: 0;
-    transform: translateY(-25px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0px);
   }
 }
 @keyframes fadeInTop {
