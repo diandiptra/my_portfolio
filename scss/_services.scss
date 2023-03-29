@@ -21,7 +21,8 @@
 
         &:hover {
             .icon {
-                box-shadow: $inner-shadow-0;
+                box-shadow: $outer-shadow-0;
+                transition: all 10s ease;
 
                 i {
                     color: $skin-color;

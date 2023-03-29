@@ -3,6 +3,7 @@
 @import "services";
 @import "portfolio";
 @import "portfoliopopup";
+@import "contact-us";
 
 
 
@@ -91,6 +92,7 @@ img {
         width: 100%;
         height: 100%;
         transition: all 0.3s ease;
+        z-index: -1;
     }
 }
 
@@ -109,6 +111,7 @@ img {
     border-radius: 30px;
     transition: all 0.3s ease;
     display: inline-block;
+    border: none;
 
     &::after {
         border-radius: 30px;

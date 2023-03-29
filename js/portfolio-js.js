@@ -22,6 +22,7 @@ import { bodyScrollingToggle } from "./main-js.js";
                 const target = e.target.getAttribute("data-target");
                 
                 portfolioItm.forEach((itm) => {
+                    console.log(itm);
                     if(target === itm.getAttribute("data-cat") || target === "all") {
                         itm.classList.remove("hide");
                         itm.classList.add("show");
@@ -57,9 +58,6 @@ import { bodyScrollingToggle } from "./main-js.js";
 
         closeBtn.addEventListener("click", () => {
             popupToggle();
-            if (projectDtCont.classList.contains("active")) {
-                popupDetailsToggle();
-            }
         })
         
         function popupToggle() {
@@ -103,12 +101,8 @@ import { bodyScrollingToggle } from "./main-js.js";
         function popupDetails() { 
             const details = portfolioItm[itemIndex].querySelector(".portfolio-item-details").innerHTML;
             popup.querySelector(".pp-project-details").innerHTML = details;
-
             const title = portfolioItm[itemIndex].querySelector(".portfolio-item-title").innerHTML;
             popup.querySelector(".pp-title h2").innerHTML = title;
-
-            const category = portfolioItm[itemIndex].getAttribute("data-cat");
-            popup.querySelector(".pp-project-categoty").innerHTML = category.split("-").join(" ");
         }
 
         projectDtBtn.addEventListener("click", () => {
