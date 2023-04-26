@@ -21,19 +21,19 @@
             display: block;
             font-size: 16px;
             font-weight: 600;
-            color: $text-black-700;
+            color: var(--text-black-700);
             margin: 10px 0 5px;
             text-transform: capitalize;
         }
 
         i {
             font-size: 25px;
-            color: $skin-color;
+            color: var(--skin-color);
         }
 
         p {
             font-size: 16px;
-            color: $text-black-600;
+            color: var(--text-black-600);
             line-height: 26px;
             margin: 0;
             word-break: break-word;
@@ -66,7 +66,7 @@
             background-color: transparent;
             font-size: 16px;
             padding: 0 15px;
-            color: $text-black-700;
+            color: var(--text-black-700);
         }
 
         &::after {
@@ -87,5 +87,14 @@
         max-width: 100%;
         text-align: right;
         padding: 0 15px;
+    }
+}
+
+@media (max-width: 578px) {
+    .contact-section {
+        .contact-item, .w-50 {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
     }
 }

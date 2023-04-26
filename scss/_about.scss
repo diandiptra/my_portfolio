@@ -32,7 +32,7 @@
                 font-size: 16px;
                 text-align: center;
                 line-height: 40px;
-                color: $text-black-700;
+                color: var(--text-black-700);
                 margin: 0 4px;
                 border-radius: 50%;
                 transition: all 0.3s ease;
@@ -42,7 +42,7 @@
                 }
 
                 &:hover {
-                    color: $skin-color;
+                    color: var(--skin-color);
                 }
             }
         }
@@ -57,7 +57,7 @@
             font-size: 16px;
             line-height: 26px;
             margin-bottom: 15px;
-            color: $text-black-600;
+            color: var(--text-black-600);
         }
 
         span {
@@ -83,7 +83,7 @@
             cursor: pointer;
             transition: all 0.3s ease;
             font-size: 16px;
-            color: $text-black-700;
+            color: var(--text-black-700);
             font-weight: 500;
             text-transform: capitalize;
 
@@ -94,7 +94,7 @@
             }
 
             &.active {
-                color: $skin-color;
+                color: var(--skin-color);
             }
         }
     }
@@ -120,7 +120,7 @@
 
             p {
                 font-size: 16px;
-                color: $text-black-700;
+                color: var(--text-black-700);
                 text-transform: capitalize;
                 margin: 0 0 10px;
             }
@@ -132,7 +132,7 @@
             }
 
             .progress-bar {
-                background-color: $text-black-600;
+                background-color: var(--text-black-600);
                 height: 6px;
                 top: 7px;
                 left: 7px;
@@ -145,7 +145,7 @@
                     top: 0;
                     font-size: 16px;
                     font-weight: 500;
-                    color: $text-black-700;
+                    color: var(--text-black-700);
                     margin-top: -40px;
                 }
             }
@@ -168,7 +168,7 @@
             height: 100%;
             left: 50%;
             top: 0;
-            background-color: $bg-black-100;
+            background-color: var(--bg-black-100);
         }
 
         .timeline-item {
@@ -214,7 +214,7 @@
                     position: absolute;
                     width: 32px;
                     height: 1px;
-                    background-color: $bg-black-100;
+                    background-color: var(--bg-black-100);
                     top: 37px;
                     z-index: -1;
                 }
@@ -226,16 +226,16 @@
                     line-height: 40px;
                     position: absolute;
                     top: 18px;
-                    border: 1px solid $bg-black-100;
-                    background-image: $bg-black-gradient;
+                    border: 1px solid var(--bg-black-100);
+                    background-image: var(--bg-black-gradient);
                     border-radius: 50%;
                     font-size: 16px;
-                    color: $skin-color;
+                    color: var(--skin-color);
                 }
 
                 span {
                     font-weight: 500;
-                    color: $skin-color;
+                    color: var(--skin-color);
                     display: block;
                     margin: 0 0 10px; 
                     text-transform: capitalize;
@@ -243,7 +243,7 @@
 
                 h3 {
                     font-size: 20px;
-                    color: $text-black-700;
+                    color: var(--text-black-700);
                     font-weight: 600;
                     margin: 0 0 5px;
                     text-transform: capitalize;
@@ -252,23 +252,92 @@
                 h4 {
                     font-size: 16px;
                     font-style: italic;
-                    color: $text-black-400;
+                    color: var(--text-black-400);
                     margin: 0 0 15px;
                 }
 
                 p {
                     font-size: 16px;
-                    color: $text-black-600;
+                    color: var(--text-black-600);
                     text-align: left;
 
                     i {
                         margin-right: 3px;
-                        color: $skin-color;
+                        color: var(--skin-color);
                     }
                 }
 
                 .desc-edu {
                     text-align: right;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 578px) {
+    .about-section {
+        .about-img, .about-info {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+
+        .skills {
+            .skill-item {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+        }
+
+        .about-img {
+            margin-bottom: 30px;
+            .img-box {
+                max-width: 225px;
+                margin: auto;
+            }
+        }
+
+        .about-info {
+            .btn-1 {
+                margin: auto;
+            }
+        }
+
+        .timeline {
+            &::before {
+                left: 35px;
+            }
+            .timeline-item {
+                margin-bottom: 20px;
+                
+                &:last-child {
+                    margin-bottom: 0;
+                }
+
+                &:nth-child(odd) {
+                    padding-right: 15px;
+                    text-align: left;
+                    padding-left: 75px;
+                    
+                    .icon {
+                        right: auto;
+                        left: -60px;
+                    }
+
+                    .timeline-item-inner {
+                        &::before {
+                            right: -15px;
+                            left: auto;
+                        }
+                    }
+                }
+                
+                &:nth-child(even) {
+                    padding-left: 75px;
+
+                    .icon {
+                        left: -60px;
+                    }
                 }
             }
         }

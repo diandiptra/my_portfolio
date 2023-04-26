@@ -2,7 +2,7 @@
 
 /* ----------Portfolio Popup---------- */
 .portfolio-popup {
-    background-color: $bg-black-50;
+    background-color: var(--bg-black-50);
     position: fixed;
     left: 0;
     top: 0;
@@ -36,7 +36,7 @@
          height: 100%;
          width: 100%;
          z-index: 1005;
-         background-color: $bg-opacity;
+         background-color: var(--bg-opacity);
          display: flex;
          align-items: center;
          justify-content: center;
@@ -51,7 +51,7 @@
          .loader {
             height: 40px;
             width: 40px;
-            border: 5px solid $skin-color;
+            border: 5px solid var(--skin-color);
             border-radius: 50%;
             border-right: 3px solid transparent;
             animation: spin 2s linear infinite;
@@ -80,7 +80,7 @@
         border-radius: 30px;
         font-size: 16px;
         font-weight: 500;
-        color: $skin-color;
+        color: var(--skin-color);
         cursor: pointer;
         padding: 0 15px;
         transition: all 0.3s ease;
@@ -104,7 +104,7 @@
         text-align: center;
         line-height: 40px;
         font-size: 30px;
-        color: $text-black-600;
+        color: var(--text-black-600);
         cursor: pointer;
         transition: all 0.3s ease;
 
@@ -120,7 +120,7 @@
         line-height: 40px;
         bottom: 5px;
         font-size: 16px;
-        color: $text-black-600;
+        color: var(--text-black-600);
      }
 
      .pp-prev, .pp-next {
@@ -132,7 +132,7 @@
         font-size: 20px;
         cursor: pointer;
         z-index: 1010;
-        color: $text-black-900;
+        color: var(--text-black-900);
         transition: all 0.3s ease;
         opacity: 0.3;
 
@@ -179,14 +179,14 @@
         height: 1px;
         width: 100%;
         display: block;
-        background-color: $bg-black-100;
+        background-color: var(--bg-black-100);
      }
 
      .pp-project-details {
         h3 {
             font-size: 20px;
             font-weight: 600;
-            color: $text-black-700;
+            color: var(--text-black-700);
             margin: 0 0 15px;
             text-transform: capitalize;
         }
@@ -197,7 +197,7 @@
 
         h2 {
             font-size: 20px;
-            color: $text-black-900;
+            color: var(--text-black-900);
             text-transform: capitalize;
             font-weight: 600;
             margin: 0 0 5px;
@@ -206,9 +206,9 @@
         p {
             font-size: 14px;
             font-weight: 600;
-            color: $text-black-600;
+            color: var(--text-black-600);
             margin: 0 0 15px;
-            border-bottom: 1px solid $bg-black-100;
+            border-bottom: 1px solid var(--bg-black-100);
             padding-bottom: 10px;
 
             span {
@@ -228,7 +228,7 @@
 
            p {
             font-size: 16px;
-            color: $text-black-600;
+            color: var(--text-black-600);
             line-height: 26px;
             margin: 0;
            }
@@ -244,7 +244,7 @@
                 display: block;
                 margin-bottom: 5px;
                 font-weight: 600;
-                color: $text-black-600;
+                color: var(--text-black-600);
                 font-size: 16px;
 
                 span {
@@ -256,11 +256,51 @@
                 }
 
                 a {
-                  color: $skin-color;
+                  color: var(--skin-color);
                 }
             }
            }
         }
      }
 
+}
+
+@media (max-width: 770px) {
+   .portfolio-popup {
+      .pp-img {
+         max-width: 100%;
+      }
+   }
+}
+
+@media (max-width: 578px) {
+   .portfolio-popup {
+      .pp-main {
+         min-height: 75vh;
+      }
+
+      .row {
+         display: grid;
+         .description, .info {
+            flex: 0 0 100%;
+            max-width: 100%;
+         }
+
+         .info {
+            margin-top: 15px;
+         }
+      }
+
+      .pp-details {
+         &.active {
+            max-height: 500px;
+         }
+      }
+
+      .pp-project-details-btn {
+         height: 35px;
+         line-height: 35px;
+         font-size: 13px;
+      }
+   }
 }

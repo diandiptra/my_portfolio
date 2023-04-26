@@ -21,11 +21,11 @@
 
         &:hover {
             .icon {
-                box-shadow: $outer-shadow-0;
+                box-shadow: var(--outer-shadow-0);
                 transition: all 10s ease;
 
                 i {
-                    color: $skin-color;
+                    color: var(--skin-color);
                 }
             }
         }
@@ -55,22 +55,41 @@
                 font-size: 25px;
                 line-height: 60px;
                 transition: all 0.3s ease;
+                color: var(--text-black-900);
             }
         }
 
         h3 {
             font-size: 20px;
             font-weight: 600;
-            color: $text-black-700;
+            color: var(--text-black-700);
             margin: 0 0 10px;
             text-transform: capitalize;
         }
 
         p {
             font-size: 16px;
-            color: $text-black-600;
+            color: var(--text-black-600);
             margin: 0;
             line-height: 26px;
+        }
+    }
+}
+
+@media (max-width: 991px) {
+    .service-section {
+        .service-item {
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+    }
+}
+
+@media (max-width: 578px) {
+    .service-section {
+        .service-item {
+            flex: 0 0 100%;
+            max-width: 100%;
         }
     }
 }

@@ -60,7 +60,7 @@
         p {
             font-size: 16px;
             margin: 10px 0 0;
-            color: $text-black-600;
+            color: var(--text-black-600);
             text-transform: capitalize;
         }
     }
@@ -71,14 +71,16 @@
         img {
             border-radius: 5px;
             width: 100%;
+            height: 200px;
             transition: all 0.3s ease;
+            object-fit: contain;
         }
 
         .view-project {
             text-transform: capitalize;
             font-size: 16px;
             font-weight: 500;
-            color: $skin-color;
+            color: var(--skin-color);
             transition: all 0.3s ease;
             position: absolute;
             left: 0;
@@ -96,19 +98,37 @@
         border-radius: 30px;
         cursor: pointer;
         font-weight: 500;
-        color: $text-black-600;
+        color: var(--text-black-600);
         text-transform: capitalize;
         font-size: 16px;
         transition: all 0.3s ease;
 
         &.active {
-            color: $skin-color;
+            color: var(--skin-color);
         }
 
         &:hover {
             &:not(.active) {
                 opacity: 0.6;
             }
+        }
+    }
+}
+
+@media (max-width: 991px) {
+    .portfolio-section {
+        .portfolio-item {
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+    }
+}
+
+@media (max-width: 578px) {
+    .portfolio-section {
+        .portfolio-item {
+            flex: 0 0 100%;
+            max-width: 100%;
         }
     }
 }

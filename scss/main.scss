@@ -4,8 +4,9 @@
 @import "portfolio";
 @import "portfoliopopup";
 @import "contact-us";
-
-
+@import "styles-switcher";
+@import "maincolor-1.scss";
+@import "bgcolor.scss";
 
 
 /* ----------Main---------- */
@@ -13,12 +14,31 @@ body {
     font-size: 16px;
     line-height: 1.5em;
     overflow-x: hidden;
-    // background-color: $bg-black-50;
-    background-image: $bg-black-gradient;
-    // overflow-y: hidden;
+    background-image: var(--bg-black-gradient);
 
     &.stop-scrolling {
         overflow-y: hidden;
+    }
+
+    &.dark {
+        --bg-black-900: #fff;
+        --bg-black-100: #353535;
+        --bg-black-50: #2b2c2f;
+
+        --bg-black-gradient: linear-gradient(130deg, #141E30, #243B55);
+
+        --bg-opacity: rgba(43,44,47,0.5);
+
+        --text-black-900: #fff;
+        --text-black-700: #fff;
+        --text-black-600: #bbb;
+        --text-black-400: #b7b7b7;
+        --text-black-300: #c7c7c7;
+
+        --outer-shadow: 3px 3px 3px #222327, -3px -3px 3px #363636;
+        --outer-shadow-0: 0 0 0 #222327, 0 0 0 #363636;
+        --inner-shadow: inset 3px 3px 3px #222327, inset -3px -3px 3px #363636;
+        --inner-shadow-0: inset 0px 0px 0px #222327, inset -0px -0px 0px #363636;
     }
 }
 
@@ -65,11 +85,11 @@ img {
 }
 
 .inner-shadow {
-    box-shadow: $inner-shadow;
+    box-shadow: var(--inner-shadow);
 }
 
 .outer-shadow {
-    box-shadow: $outer-shadow;
+    box-shadow: var(--outer-shadow);
 }
 
 .hover-in-shadow {
@@ -77,10 +97,10 @@ img {
     z-index: 1;
 
     &:hover {
-        box-shadow: $outer-shadow-0;
+        box-shadow: var(--outer-shadow-0);
 
         &::after {
-            box-shadow: $inner-shadow;
+            box-shadow: var(--inner-shadow);
         }
     }
 
@@ -104,7 +124,7 @@ img {
     padding: 10px 25px;
     font-size: 16px;
     font-weight: 400;
-    color: $skin-color;
+    color: var(--skin-color);
     background-color: transparent;
     line-height: 1.5;
     cursor: pointer;
@@ -154,7 +174,7 @@ img {
 .effect-3 {
     height: 180px;
     width: 180px;
-    border: 25px solid $skin-color;
+    border: 25px solid var(--skin-color);
     border-radius: 50%;
     left: 50%;
     top: -115px;
@@ -207,7 +227,7 @@ img {
         display: inline-block;
         font-size: 30px;
         font-weight: 600;
-        color: $text-black-900;
+        color: var(--text-black-900);
         text-transform: uppercase;
         margin: 0;
 
@@ -216,14 +236,20 @@ img {
             display: block;
             font-size: 16px;
             font-weight: 500;
-            color: $skin-color;
+            color: var(--skin-color);
             line-height: 40px;
         }
     }
 }
 
 .skin-text {
-    color: $skin-color;
+    color: var(--skin-color);
+}
+
+.section {
+    &.hide {
+        display: none;
+    }
 }
 
 
@@ -287,9 +313,9 @@ img {
             height: 40px;
             width: 40px;
             font-size: 20px;
-            color: $skin-color;
+            color: var(--skin-color);
             border-radius: 50%;
-            border: 2px solid $skin-color;
+            border: 2px solid var(--skin-color);
             font-family: $second-font;
             text-transform: uppercase;
         }
@@ -313,7 +339,7 @@ img {
             display: block;
             height: 2px;
             width: 16px;
-            background-color: $bg-black-900;
+            background-color: var(--bg-black-900);
             position: relative;
 
             &::before, &::after {
@@ -322,7 +348,7 @@ img {
                 left: 0;
                 width: 100%;
                 height: 100%;
-                background-color: $bg-black-900;
+                background-color: var(--bg-black-900);
             }
 
             &::before {
@@ -337,6 +363,33 @@ img {
 }
 
 /* ----------Navigation Menu---------- */
+.fade-out-effect {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    visibility: hidden;
+    background-color: var(--bg-black-50);
+
+    &.active {
+        visibility: visible;
+        z-index: 1000;
+        animation: fadeOut 0.3s ease-out;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
 .nav-menu {
     position: fixed;
     padding: 0 15px;
@@ -347,15 +400,22 @@ img {
     z-index: -1;
     opacity: 0;
     visibility: hidden;
-    background-color: $bg-black-50;
+    background-color: var(--bg-black-50);
     overflow-y: auto;
+
+    &.open {
+        visibility: visible;
+        opacity: 1;
+        z-index: 999;
+        transition: all 0.3s ease-in;
+    }
 
     .copyright-text {
         position: absolute;
         left: -110px;
         top: 50%;
         font-size: 15px;
-        color: $text-black-600;
+        color: var(--text-black-600);
         transform: translateY(-50%) rotate(-90deg);
 
         span {
@@ -388,7 +448,7 @@ img {
                 display: inline-block;
                 font-size: 28px;
                 font-weight: 500;
-                color: $text-black-700;
+                color: var(--text-black-700);
                 padding: 5px 30px;
                 text-transform: capitalize;
                 border-radius: 30px;
@@ -399,7 +459,7 @@ img {
                 }
 
                 &.active {
-                    color: $skin-color;
+                    color: var(--skin-color);
                 }
             }
         }
@@ -417,7 +477,7 @@ img {
         top: 15px;
         cursor: pointer;
         text-align: center;
-        color: $text-black-600;
+        color: var(--text-black-600);
 
         &::after {
             border-radius: 50%;
@@ -443,7 +503,7 @@ img {
         .home-text {
             line-height: 50px;
             p {
-                color: $text-black-300;
+                color: var(--text-black-300);
                 font-size: 18px;
                 text-transform: capitalize;
                 margin: 0;
@@ -452,14 +512,14 @@ img {
             h2 {
                 font-size: 55px;
                 font-weight: 600;
-                color: $text-black-900;
+                color: var(--text-black-900);
                 margin: 0;
             }
 
             h1 {
                 font-size: 20px;
                 font-weight: 400;
-                color: $text-black-700;
+                color: var(--text-black-700);
                 margin: 0;
             }
         }
@@ -478,6 +538,112 @@ img {
                     width: 100%;
                     border-radius: 50%;
                     border: 10px solid transparent;
+                }
+            }
+        }
+    }
+}
+
+// Responsive Web
+@media (max-width: 1120px) {
+    .home-section {
+        .full-screen {
+            .home-text {
+                padding: 80px 2px 80px 60px;
+            }
+
+            .home-img {
+                padding: 80px 60px 80px 20px;
+            }
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .home-section {   
+        .home-text {
+            order: 2;
+        }
+
+        .full-screen {
+            padding: 100px 0;
+        }
+
+        .full-screen {
+            .home-text, .home-img {
+                padding: 0 15px;
+            }
+        }
+    }
+}
+
+@media (max-width: 578px) {
+    .home-section {
+        .full-screen {
+            display: grid;
+
+            .home-text, .home-img {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+
+            .home-text {
+                text-align: center;
+            }
+
+            .home-img {
+                .img-box {
+                    margin-bottom: -58px;
+                    max-width: 275px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 430px) {
+    .home-section {
+        .full-screen {
+            .home-img {
+                .img-box {
+                    max-width: 200px;
+                    margin-bottom: 10px;
+                }
+            }
+
+            .home-text {
+                p {
+                    font-size: 14px;
+                }
+
+                h2 {
+                    font-size: 40px;
+                }
+
+                h1 {
+                    font-size: 17px;
+                }
+            }
+        }
+    }
+
+    .btn-1 {
+        padding: 10px 20px;
+        font-size: 12px;
+    }
+
+    .effect-4 {
+        left: 12%;
+    }
+}
+
+@media (max-width: 413px) {
+    .home-section {
+        .full-screen {
+            padding: 230px 0;
+            .home-img {
+                .img-box {
+                    max-width: 225px;
                 }
             }
         }

@@ -22,9 +22,18 @@
             </ul>
         </div>
         <!-- Copyright Text Start -->
-        <p class="copyright-text">&copy; 2022 아름다움 <span>(Areumdaum) Project</span></p>
+        <p class="copyright-text">&copy; 
+            <span id="year-copyright">
+                <script>document.getElementById('year-copyright').appendChild(document.createTextNode(new Date().getFullYear()))</script>
+            </span> -  
+            아름다움 
+            <span>(Areumdaum) Project</span></p>
         <!-- Copyright Text End -->
     </nav>
+
+    <div class="fade-out-effect">
+    </div>
+    
     <!-- Navigation Menu End -->
 </body>
 </html>

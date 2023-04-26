@@ -58,6 +58,12 @@ import { bodyScrollingToggle } from "./main-js.js";
 
         closeBtn.addEventListener("click", () => {
             popupToggle();
+            if (projectDtCont.classList.contains("active")) {
+                projectDtBtn.querySelector("i").classList.remove("fa-minus");
+                projectDtBtn.querySelector("i").classList.add("fa-plus");
+                projectDtCont.classList.remove("active");
+                projectDtCont.style.maxHeight = 0 + "px";
+            }
         })
         
         function popupToggle() {
